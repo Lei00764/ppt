@@ -15,7 +15,7 @@
 .reveal h2,
 .reveal h3,
 .reveal h4 {
-    font-family: 'Lato', 'SimHei', 'STXihei', 'Sans Serif';
+    font-family: "LXGW WenKai Screen","JetBrains Mono", 'Lato', 'SimHei', 'STXihei', 'Sans Serif';
     font-weight: 400;
 }
 
@@ -23,7 +23,7 @@
 .reveal li,
 .reveal center {
     font-size: 32px;
-    font-family: 'Lato', 'STHeiti', 'SimHei', 'Sans Serif';
+    font-family: "LXGW WenKai Screen","JetBrains Mono", 'Lato', 'STHeiti', 'SimHei', 'Sans Serif';
 }
 
 .reveal li+li {
@@ -46,7 +46,7 @@
 
 .reveal table {
     font-size: 32px;
-    font-family: 'Lato', 'STHeiti', 'SimHei', 'Sans Serif';
+    font-family:  "LXGW WenKai Screen","JetBrains Mono", 'Lato', 'SimHei', 'STXihei', 'Sans Serif';
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -121,7 +121,7 @@
 }
 
 .reveal code {
-    font-family: 'Inconsolata', 'STKaiti', 'KaiTi', 'Sans Serif', Monospace;
+    font-family:  "LXGW WenKai Screen","JetBrains Mono", 'Lato', 'SimHei', 'STXihei', 'Sans Serif';
 }
 
 .reveal .middle blockquote {
@@ -137,7 +137,7 @@
 
 .reveal blockquote p,
 .reveal blockquote li {
-    font-family: 'Lato', 'STKaiti', 'KaiTi', 'Sans Serif';
+    font-family:  "LXGW WenKai Screen","JetBrains Mono", 'Lato', 'SimHei', 'STXihei', 'Sans Serif';
 }
 
 section .center {
@@ -156,7 +156,7 @@ section .center {
 
 .reveal .author-block p,
 .reveal .author-affiliation p {
-    font-family: 'Kaiti', 'STKaiti', 'Serif', 'Times', 'Times New Roman';
+    font-family:  "LXGW WenKai Screen","JetBrains Mono", 'Lato', 'SimHei', 'STXihei', 'Sans Serif';
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
