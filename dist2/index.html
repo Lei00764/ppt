@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> InternHive </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="internhive" class="text-2xl mt-2 font-sans">实习平台系统：InternHive</h1>
+<hr/>
+
+<blockquote>
+<p class="font-serif my-1"><a href="">王皓</a> <a href="">周成杰</a> <a href="">雷翔</a></p>
+</blockquote></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">项目背景</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">实习</h2>
+<blockquote>
+<p class="font-serif my-1">实习是高等教育的重要组成部分，通过实习可以将我们在课堂上学习到的理论知识应用到实际工作中，接触真实的职场环境，最终获得实践经验和未来职业竞争力。</p>
+</blockquote>
+<p class="font-serif my-1"><img class="center" width="450px" src="./static/img/57519e8996814843b5d6f0f7a5113aec.jpg"/></p>
+<p class="font-serif my-1">绝大多数同学都希望能够找到符合自己专业方向、薪资水平不错的高质量实习，基于这种市场需求，我们开发一款高度可靠和透明的实习平台系统。</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">解决方案</h2>
+<p class="font-serif my-1">现有解决方案</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">平台管理效率低下</li>
+<li class="ml-8">实习信息透明度低（实习招聘信息没有广泛传播，学生错过潜在实习机会）</li>
+<li class="ml-8">学生和企业无法对实习过程进行反馈</li>
+</ul>
+<hr/>
+
+<p class="font-serif my-1">我们希望搭建一个实习平台</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">它设计良好、高效</li>
+<li class="ml-8">能够促进学生和企业之间的沟通</li>
+<li class="ml-8">并为双方提供有价值的反馈。</li>
+</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">用户需求</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">学生</h2>
+<p class="font-serif my-1">从学生角度：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">申请实习岗位，及时获取有价值的实习信息，寻找实习机会</li>
+<li class="ml-8">一个能提供实习经验分享和交流的平台，吸取前辈们的经验教训</li>
+<li class="ml-8">觉得企业不好，想要提前终止实习</li>
+<li class="ml-8">实习结束后，想要分享自己的实习经历，给企业/平台提供建议</li>
+</ul></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">企业</h2>
+<p class="font-serif my-1">从企业角度：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">发布实习岗位，快速找到一个合适的实习生</li>
+<li class="ml-8">学生摆烂，企业不想让学生继续实习下去</li>
+<li class="ml-8">实习结束后，对学生实习工作进行评价</li>
+</ul></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">管理者</h2>
+<p class="font-serif my-1">从平台角度：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">允许学生/企业注册，成为平台用户</li>
+<li class="ml-8">维护学生/企业的信息，以及实习岗位目录的分类整理</li>
+<li class="ml-8">提供企业评级和排名功能，帮助学生找到合适岗位</li>
+<li class="ml-8">针对学生/企业提出的问题，能够改进平台功能</li>
+</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">平台功能</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">主要功能</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">（学生和企业）用户注册</li>
+<li class="ml-8">（学生）申请实习</li>
+<li class="ml-8">（学生）评估实习</li>
+<li class="ml-8">（企业）发布实习</li>
+<li class="ml-8">（学生和企业）终止实习</li>
+<li class="ml-8">（学生和企业）反馈意见 平台跟进</li>
+<li class="ml-8">（平台）迭代更新</li>
+<li class="ml-8">（平台）维护用户信息</li>
+</ul>
+<hr/>
+
+<p class="font-serif my-1"><blue>InternHive</blue>：解决“学生难找到好工作、企业难招到好员工”的问题，能够为学生找到高质量的实习，为企业招到优秀的人才！</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">用例图</h2>
+<p class="font-serif my-1"><img class="center" width="450px" src="./static/img/752a79e19b65432f9ead9306b1d59785.png"/></p>
+<p class="font-serif my-1">重要用例：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">"Evaluate" "Feedback" "Iteration"</li>
+<li class="ml-8">"Login" "Maintain Information" "Post Internship"</li>
+<li class="ml-8">"Apply for Internship"  "Terminate Internship"</li>
+</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">敏捷开发</h1></div></div></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
