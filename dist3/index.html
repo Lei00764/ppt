@@ -67,8 +67,8 @@
 <blockquote>
 <p class="font-serif my-1">强化学习：agent在environment中学习，根据环境的state，执行action，并根据reward来指导更好的动作。</p>
 </blockquote>
-<p class="font-serif my-1"><img class="center" width="800px" src="./static/img/febaead3180e4d219dce273333a54129.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">分类</h2>
-<p class="font-serif my-1"><img class="center" width="1000px" src="./static/img/c626084ef62a49a4b045bc47368d2902.png"/></p>
+<p class="font-serif my-1"><img class="center" width="800px" src="./static/img/cc6b24210203418b810eb3c4ca1d6dcb.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">分类</h2>
+<p class="font-serif my-1"><img class="center" width="1000px" src="./static/img/de8e3345cd06418b9103fd234f46e188.png"/></p>
 <hr/>
 
 <ul class="list-disc font-serif">
@@ -76,16 +76,16 @@
 <li class="ml-8">按照学习目标：Value-Based和Policy--Based; </li>
 </ul></div></section><section><div><h2 id="ppo" class="text-xl mt-2 pb-2 font-sans">PPO</h2>
 <blockquote>
-<p class="font-serif my-1">PPO (Proximal Policy Optimization) 是一种用于深度强化学习的优化算法，由OpenAl于2017年提出。</p>
+<p class="font-serif my-1">PPO (Proximal Policy Optimization) 是一种用于深度强化学习的优化算法，由OpenAI于2017年提出。</p>
 </blockquote>
 <hr/>
 
 <ul class="list-disc font-serif">
 <li class="ml-8">PPO是一个无模型的基于策略的强化学习算法</li>
-<li class="ml-8">OpenAI-5 和 ChatGPT 使用 PPO 进行训练 </li>
-<li class="ml-8">学习在某个状态下，智能体如何做动作</li>
+<li class="ml-8">PPO是OpenAI的默认算法，ChatGPT是使用PPO进行训练</li>
+<li class="ml-8">目的：学习在某个状态下，智能体如何做动作</li>
 </ul>
-<p class="font-serif my-1"><img class="center" width="1000px" src="./static/img/421fcf4c7def4ce0af16b4ff1cc5723f.png"/></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">如何构建游戏？</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">环境</h2>
+<p class="font-serif my-1"><img class="center" width="1000px" src="./static/img/dc37627a38ec495db122888609ac32c9.png"/></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">如何构建游戏？</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">环境</h2>
 <blockquote>
 <p class="font-serif my-1">gym是强化学习的标准API，以及各种参考环境的集合。</p>
 </blockquote>
@@ -96,45 +96,47 @@
 <p class="font-serif my-1">在环境中，提供reset()、step()和render()这三个方法</p>
 <hr/>
 
-<p class="font-serif my-1"><img class="center" width="800px" src="./static/img/7833bb417cb74c6fbaeddd491a0370df.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">模型</h2>
+<p class="font-serif my-1"><img class="center" width="800px" src="./static/img/adfd90a6fff1462bbddb16b22b3d021b.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">模型</h2>
 <ul class="list-disc font-serif">
 <li class="ml-8">使用 StableBaselines3 深度强化学习工具包</li>
-<li class="ml-8">模型选择<ul class="list-disc font-serif">
+<li class="ml-8">网络选择<ul class="list-disc font-serif">
 <li class="ml-8">多层感知机 MLP</li>
 <li class="ml-8">卷积神经网络 CNN</li>
 </ul>
 </li>
 </ul>
-<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/2cd70b95f6b043a186ce7adb0e50659c.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">奖励</h2>
+<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/4bb2884c790d44778476585dd538ccb1.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">奖励</h2>
 <p class="font-serif my-1"><red> 任务：根据游戏规则和目标，设计一个奖励函数来引导蛇的行为</red></p>
 <ul class="list-disc font-serif">
 <li class="ml-8">奖励是强化学习的灵魂</li>
-<li class="ml-8">例如，蛇吃到奖励就给予奖励，撞墙或撞到自己身体给予负奖励<ul class="list-disc font-serif">
+<li class="ml-8">例如，蛇吃到奖励就给予奖励，撞墙或撞到自己身体给予惩罚<ul class="list-disc font-serif">
 <li class="ml-8">结果：训练出一个只会“苟且偷生”的蛇。</li>
 </ul>
 </li>
+<li class="ml-8">解决方法：设置一个最长步数，超过该步数就扣大量分数</li>
 </ul>
-<p class="font-serif my-1">更好的方式</p>
+<hr/>
+
 <ul class="list-disc font-serif">
+<li class="ml-8">更好的奖励<ul class="list-disc font-serif">
 <li class="ml-8">计算蛇头与果子的距离，接近果子加分，远离果子扣分。</li>
 <li class="ml-8">这个分数为蛇长度的倒数，随蛇的长度增加逐步衰减。</li>
 </ul>
-<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/2923322cd477447f809fbea0361d9d0b.png"/></p>
-<ul class="list-disc font-serif">
-<li class="ml-8">好处：蛇越长，吃到食物的奖励越多，输掉游戏时扣分越少。</li>
-</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">训练</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">训练分析</h2>
-<pre class="codehilite bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><code class="language-Python">lr_schedule = linear_schedule(2.5e-4, 2.5e-6)  
+</li>
+</ul>
+<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/0eed8cea5b4d4f1fb2f232c53357b3ea.png"/></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">训练</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">训练分析</h2>
+<pre class="codehilite bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><code class="language-Python"># 采用线性衰减方法
+lr_schedule = linear_schedule(2.5e-4, 2.5e-6)  
 clip_range_schedule = linear_schedule(0.150, 0.025)  
 
-n_steps=2048  # 每个训练批次中的步数
-batch_size=512  # 每个训练批次中的样本数
-n_epochs=1  # 训练的轮数
-gamma=0.94  # 折扣因子 计算未来的折扣值
-
-total_timesteps= 10000000 # 训练步数
+n_steps = 2048              # 每个训练批次中的步数
+batch_size = 512            # 每个训练批次中的样本数
+n_epochs = 1                # 训练的轮数
+gamma = 0.94                # 折扣因子 计算未来的折扣值
+total_timesteps = 10000000  # 训练步数
 </code></pre>
 
-<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/69a6121e5db24630ba954847d3959dc2.png"/></p></div></section></section>
+<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/d2cc7068364e42eaa44c7e1988721111.png"/></p></div></section></section>
         </div>
     </div>
 
