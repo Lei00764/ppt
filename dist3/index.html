@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> snakeAI </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="ppoai" class="text-2xl mt-2 font-sans">基于PPO算法的AI贪吃蛇小游戏</h1>
+<hr/>
+
+<blockquote>
+<p class="font-serif my-1">2053932 <a href="https://github.com/Lei00764">雷翔</a></p>
+</blockquote></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="ppo" class="text-2xl mt-2 font-sans">PPO 是什么？</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">强化学习</h2>
+<blockquote>
+<p class="font-serif my-1">强化学习：agent在environment中学习，根据环境的state，执行action，并根据reward来指导更好的动作。</p>
+</blockquote>
+<p class="font-serif my-1"><img class="center" width="800px" src="./static/img/febaead3180e4d219dce273333a54129.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">分类</h2>
+<p class="font-serif my-1"><img class="center" width="1000px" src="./static/img/c626084ef62a49a4b045bc47368d2902.png"/></p>
+<hr/>
+
+<ul class="list-disc font-serif">
+<li class="ml-8">按照环境是否已知：Model-Based和Model-free; </li>
+<li class="ml-8">按照学习目标：Value-Based和Policy--Based; </li>
+</ul></div></section><section><div><h2 id="ppo" class="text-xl mt-2 pb-2 font-sans">PPO</h2>
+<blockquote>
+<p class="font-serif my-1">PPO (Proximal Policy Optimization) 是一种用于深度强化学习的优化算法，由OpenAl于2017年提出。</p>
+</blockquote>
+<hr/>
+
+<ul class="list-disc font-serif">
+<li class="ml-8">PPO是一个无模型的基于策略的强化学习算法</li>
+<li class="ml-8">OpenAI-5 和 ChatGPT 使用 PPO 进行训练 </li>
+<li class="ml-8">学习在某个状态下，智能体如何做动作</li>
+</ul>
+<p class="font-serif my-1"><img class="center" width="1000px" src="./static/img/421fcf4c7def4ce0af16b4ff1cc5723f.png"/></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">如何构建游戏？</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">环境</h2>
+<blockquote>
+<p class="font-serif my-1">gym是强化学习的标准API，以及各种参考环境的集合。</p>
+</blockquote>
+<hr/>
+
+<p class="font-serif my-1"><red> 任务：确定状态空间和动作空间 </red></p>
+<p class="font-serif my-1">TODO : 创建一个 gym 环境，用于模拟贪吃蛇游戏</p>
+<p class="font-serif my-1">在环境中，提供reset()、step()和render()这三个方法</p>
+<hr/>
+
+<p class="font-serif my-1"><img class="center" width="800px" src="./static/img/7833bb417cb74c6fbaeddd491a0370df.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">模型</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">使用 StableBaselines3 深度强化学习工具包</li>
+<li class="ml-8">模型选择<ul class="list-disc font-serif">
+<li class="ml-8">多层感知机 MLP</li>
+<li class="ml-8">卷积神经网络 CNN</li>
+</ul>
+</li>
+</ul>
+<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/2cd70b95f6b043a186ce7adb0e50659c.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">奖励</h2>
+<p class="font-serif my-1"><red> 任务：根据游戏规则和目标，设计一个奖励函数来引导蛇的行为</red></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">奖励是强化学习的灵魂</li>
+<li class="ml-8">例如，蛇吃到奖励就给予奖励，撞墙或撞到自己身体给予负奖励<ul class="list-disc font-serif">
+<li class="ml-8">结果：训练出一个只会“苟且偷生”的蛇。</li>
+</ul>
+</li>
+</ul>
+<p class="font-serif my-1">更好的方式</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">计算蛇头与果子的距离，接近果子加分，远离果子扣分。</li>
+<li class="ml-8">这个分数为蛇长度的倒数，随蛇的长度增加逐步衰减。</li>
+</ul>
+<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/2923322cd477447f809fbea0361d9d0b.png"/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">好处：蛇越长，吃到食物的奖励越多，输掉游戏时扣分越少。</li>
+</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">训练</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">训练分析</h2>
+<pre class="codehilite bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><code class="language-Python">lr_schedule = linear_schedule(2.5e-4, 2.5e-6)  
+clip_range_schedule = linear_schedule(0.150, 0.025)  
+
+n_steps=2048  # 每个训练批次中的步数
+batch_size=512  # 每个训练批次中的样本数
+n_epochs=1  # 训练的轮数
+gamma=0.94  # 折扣因子 计算未来的折扣值
+
+total_timesteps= 10000000 # 训练步数
+</code></pre>
+
+<p class="font-serif my-1"><img class="center" width="700px" src="./static/img/69a6121e5db24630ba954847d3959dc2.png"/></p></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
